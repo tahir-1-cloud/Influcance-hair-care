@@ -1,0 +1,165 @@
+﻿@model IEnumerable<InfluanceHairCare.models.Customer>
+@{
+    ViewData["Title"] = "Customerdata";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!Doctype html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    @if (TempData["response"] != null)
+    {
+        <script>
+            $(document).ready(function() {
+                if (TempData["success"] != null) {
+
+
+                    toastr.success('@TempData["success"]');
+                }
+                if (TempData["error"] != null) {
+                    toastr.error('@TempData["error"]');
+                }
+            });
+
+        </script>
+    }
+
+</head>
+<body>
+    <br />
+    <br />
+    <h3>Customer data</h3>
+    <br />
+    <br />
+
+    <div class="container">
+        <table id="User" class="display">
+
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Salon Name</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Location</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Salon_Name</td>
+                        <td>@item.State</td>
+                        <td>@item.City</td>
+                        <td>@item.Location</td>
+                        <td>@item.Phone</td>
+
+                        <td style="display:flex; justify-content:space-between; padding-top:25px;">
+                            <a class="btn btn-link btn-warning edit btn-sm btnUpdates d-none" style="color:maroon; margin-right:5px;" href='@Url.Action("UpdateProduct", "Product", new { id = "" })' : null"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-link btn-warning edit btnupdate" style="color:maroon"><i class="fa fa-edit"></i></a>
+
+
+                            <a class="btn btn-link btn-danger remove btn-sm btnremove d-none" style="color:maroon" href='@Url.Action("productDelete", "Product", new { id = ""})' : null"><i class="fa fa-times"></i></a>
+                            <a class="btn btn-link btn-danger remove btndelete" style="color:maroon;margin-left: 1rem;"><i class="fa fa-times"></i></a>
+
+                            <a class="btn btn-info" style="margin-left: 1rem;" href='@Url.Action("ProductDetails", "SalesRep", new { id = ""})' : null"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                        </td>
+
+
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</body>
+
+</html>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="~/js/jquery1-3.4.1.min.js"></script>
+<script src="~/js/jquery.validate.min.js"></script>
+<script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="~/js/toastr.js"></script>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('#User').DataTable({
+
+                "Processing": true,
+                "ServerSide": false,
+                "Filter": true
+            })
+        });
+    </script>
+
+}
+    <script>
+        $(".btndelete").click(function(e) {
+            e.preventDefault();
+            swal("Are you sure to delete?", {
+                buttons: {
+                    yes: {
+                        text: "Yes",
+                        value: "yes"
+                    },
+                    no: {
+                        text: "No",
+                        value: "no"
+                    }
+                }
+            }).then((value) => {
+                if (value == "yes") {
+                    debugger;
+                    $(this).parent().find(".btnremove").get(0).click();
+                }
+                return false;
+            });
+        });
+    </script>
+
+    <script>
+        $(".btnupdate").click(function(e) {
+            e.preventDefault();
+            swal("Are you sure you want to update?", {
+                buttons: {
+                    yes: {
+                        text: "Yes",
+                        value: "yes"
+                    },
+                    no: {
+                        text: "No",
+                        value: "no"
+                    }
+                }
+            }).then((value) => {
+                if (value == "yes") {
+                    debugger;
+                    $(this).parent().find(".btnUpdates").get(0).click();
+                }
+                return false;
+            });
+        });
+    </script>

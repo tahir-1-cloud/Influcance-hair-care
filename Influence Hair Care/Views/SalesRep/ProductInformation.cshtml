@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "ProductInformation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+    <!-- Js Stylesheet -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="~/js/jquery1-3.4.1.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+
+    @if (TempData["response"] != null)
+    {
+        <script>
+            $(document).ready(function() {
+                var success = '@((TempData["response"] != null).ToString())';
+                if (success == 'false' || success == false) {
+                } else {
+                    toastr.success('@TempData["response"].ToString()')
+                }
+            });
+        </script>
+    }
+    <title>Register Sale Rep</title>
+
+    <style>
+
+
+        #product {
+            width: 1148px;
+            margin: 0 auto;
+            margin-top: 48px;
+            display: flex;
+        }
+
+        .cta {
+            display: flex;
+            width: 100%;
+            margin: 40px 0;
+        }
+
+
+            .cta .material-symbols-outlined {
+                margin-right: 6px;
+            }
+
+    </style>
+</head>
+<body>
+
+
+    <br /><br />
+    <h1>Product Information</h1>
+
+
+    <div id="product">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/assets/img/Rosemary-Sanitizer.png" width="100%" />
+            </div>
+            <div class="col-md-6">
+
+
+                <h2>Rosemary Antibacterial Hand Sanitizer</h2>
+                <h3>$49.00</h3>
+                <br />
+                <ul>
+                    <li>Kills 99.99% of Germs</li>
+                    <li>Contain Aloe & Vitamin E</li>
+                    <li>Leaves Hands Soft</li>
+                </ul>
+
+                <br />
+                <h6>
+                    Lavender and Rosemary hand sanitiser, from the Kew Gardens collection. This powerful 75% alcohol hand sanitiser is infused with aloe vera and vitamin E to help moisturise and nourish your skin.
+                </h6>
+
+                <div>
+                    <h5>Availability: <span>In stock</span></h5>
+                    <h5>Product Code: <span>#4657</span></h5>
+                    <h5>SKU: <span>N/A</span> </h5>
+                    <h5>Category: <span>Skin Care</span> </h5>
+
+                </div>
+
+               @* <div class="cta">
+                    <div class="btn btn-info">Submit</div>
+                    <div class="btn btn-danger ml-2">Clear</div>
+                </div>*@
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+

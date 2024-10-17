@@ -1,0 +1,190 @@
+﻿@model IEnumerable<InfluanceHairCare.models.Customer>
+@{
+    ViewData["Title"] = "CustomerApproval";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<partial name="_ToasterAlert" />
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" rel="stylesheet" />
+
+<br />
+<br />
+<h3>Customer Approval</h3>
+<br />
+<br />
+
+<div class="container">
+    <table id="User" class="display">
+
+        <thead>
+            <tr>
+
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+                <th>Mobile No</th>
+                <th>Account Balance</th>
+                <th>Salon name</th>
+
+                <th>Action</th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.FirstName</td>
+                <td>@item.LastName </td>
+                <td>@item.City</td>
+                <td>@item.Phone</td>
+                <td>@item.AccountBalance</td>
+                <td>@item.Salon_Name</td>
+                <td>
+                    <button id="@item.Id" type="button" class="btn btn-info mdl_show" onclick="getId(@item.Id)">Add SaleRep</button>
+                    @*<a class="btn btn-link btn-warning edit btnUpdates d-none" style="color:maroon" href='@Url.Action("EditExamRoom", "ExamRoom", new { id = "#" })' : null"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+                <a class="btn btn-link btn-danger remove btnremove d-none" style="color:maroon" href='@Url.Action("DeleteExamRoom", "ExamRoom", new { id = "RoomId"})' : null"><i class="fa fa-times"></i></a>
+                <a class="btn btn-link btn-danger remove btndelete" data-rel="RoomId" id="" style="color:maroon" : null"><i class="fa fa-times"></i></a>*@
+                </td>
+
+
+            </tr>
+
+        }
+
+    </table>
+
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Customer Approvals </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Select
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Rating
+                                </th>
+                                <th>
+                                    State
+                                </th>
+                                <th>
+                                    City
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="tables">
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="Add();">Add</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+
+    <script>
+        $(document).ready(function() {
+
+            $('#User').DataTable({
+                "Processing": true,
+                "ServerSide": false,
+                "Filter": true
+            });
+
+        });
+        function getId(cId) {
+            $('.mdl_show').val(cId);
+            loadData();
+            $("#myModal").modal("toggle");
+        }
+        function loadData() {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetAllSaleRep","SalesRep")',
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function(result) {
+
+                    var html = '';
+                    $.each(result, function(key, item) {
+
+                        html += '<tr>';
+                        html += '<td><input type="radio" name="rbDefaultPrice" id="radio" value="' + item.id + '" class="radioBtnClass" /></td>';
+                        //html += '<td>' + item.id + '</td>';
+                        html += '<td>' + item.firstName + '</td>';
+                        html += '<td>' + item.rating + '</td>';
+                        html += '<td>' + item.state + '</td>';
+                        html += '<td>' + item.city + '</td>';
+                        //html += '<td><a href="#" onclick="return getbyID(' + item.Id + ')">Edit</a> | <a href="#" onclick="Delele(' + item.Id + ')">Delete</a></td>';
+                        html += '</tr>';
+                    });
+                    $('.tables').html(html);
+                },
+                error: function(errormessage) {
+
+                }
+            });
+        }
+
+        function Add() {
+            $("#myModal").modal("toggle");
+
+            var xd = $('.mdl_show').val();
+            if ($("input[type='radio'].radioBtnClass").is(':checked')) {
+                var card_type = $("input[type='radio'].radioBtnClass:checked").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("UpdateCustomerSaleRep","Customer")',
+
+                    data: { cId: xd, sId: card_type },
+                    dataType: "json",
+                    success: function(result) {
+
+                        debugger;
+                        if (result !== '') {
+
+                            setTimeout(function() {
+
+                                window.location.reload();
+
+                            }, 0);
+
+                        }
+                    }
+
+                });
+
+            }
+        }
+
+
+
+    </script>
+}

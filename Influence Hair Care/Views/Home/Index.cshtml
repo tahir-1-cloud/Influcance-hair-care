@@ -1,0 +1,224 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<partial name="_ToasterAlert" />
+
+<div class="container-fluid g-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12  p-0">
+            <div class="header_iner d-flex justify-content-between align-items-center" style="background-color:black;">
+                <div class="sidebar_icon d-lg-none">
+                    <i class="ti-menu"></i>
+                </div>
+                <div class="serach_field-area">
+                    <div class="search_inner">
+                        <form action="#">
+                            <div class="search_field">
+                                <input type="text" placeholder="Search here...">
+                            </div>
+                            <button type="submit"> <img src="~/assets/img/icon/icon_search.svg" alt=""> </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="header_right d-flex justify-content-between align-items-center">
+                    <div class="header_notification_warp d-flex align-items-center">
+                        <li>
+                            <a href="#"> <img src="~/assets/img/icon/bell.svg" alt=""> </a>
+                        </li>
+                        <li>
+                            <a href="#"> <img src="~/assets/img/icon/msg.svg" alt=""> </a>
+                        </li>
+                    </div>
+                    <div class="profile_info">
+                        <img src="~/assets/img/client_img.png" alt="#">
+                        <div class="profile_info_iner">
+                            <p>Welcome Admin!</p>
+                            <h5>Travor James</h5>
+                            <div class="profile_info_details">
+                                <a href="#">My Profile <i class="ti-user"></i></a>
+                                <a href="#">Settings <i class="ti-settings"></i></a>
+                                <a href="#">Log Out <i class="ti-shift-left"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="filter-list">
+            <button class="btn btn-default filter-button active" data-filter="news">Daily</button>
+            <button class="btn btn-default filter-button" data-filter="sale">Weekly</button>
+            <button class="btn btn-default filter-button" data-filter="sale">Monthly</button>
+            <button class="btn btn-default filter-button" data-filter="sale">Yearly</button>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="main_content_iner ">
+    <div class="container-fluid plr_30 body_white_bg pt_30">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="single_element">
+                    <div class="quick_activity">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="quick_activity_wrap">
+                                    <div class="single_quick_activity">
+                                        <h4>Total Sales</h4>
+                                        <h3>$ <span class="counter">5,79,000</span> </h3>
+                                        <p>Saved 25%</p>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Total Sales Rep</h4>
+                                        <h3><span class="counter">79,0</span> </h3>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Total Customer</h4>
+                                        <h3><span class="counter">5000</span> </h3>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Pending Payment</h4>
+                                        <h3>$ <span class="counter">1,79,000</span> </h3>
+                                        <p>Saved 65%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xl-6">
+                <div class="white_box mb_30 min_430">
+                    <div class="box_header  box_header_block ">
+                        <div class="main-title">
+                            <h3 class="mb-0">Sales Statistics</h3>
+                            <span>Avg. $5,309</span>
+                        </div>
+                        <div class="box_select d-flex">
+                            <select class="nice_Select2 mr_5">
+                                <option value="1">Monthly</option>
+                                <option value="1">Monthly</option>
+                            </select>
+                            <select class="nice_Select2 ">
+                                <option value="1">Last Year</option>
+                                <option value="1">this Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="bar_active"></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 ">
+                <div class="white_box mb_30 min_430">
+                    <div class="box_header  box_header_block">
+                        <div class="main-title">
+                            <h3 class="mb-0">Completed orders</h3>
+                        </div>
+                    </div>
+                    <div id="radial_2"></div>
+                    <div class="radial_footer">
+                        <div class="radial_footer_inner d-flex justify-content-between">
+                        </div>
+                        <div class="radial_bottom">
+                            <p><a href="#">View Full Report</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="white_box min_430">
+                    <div class="box_header  box_header_block">
+                        <div class="main-title">
+                            <h3 class="mb-0">Pending Orders</h3>
+                        </div>
+                    </div>
+                    <div id="radial_1"></div>
+                    <div class="radial_footer">
+                        <div class="radial_footer_inner d-flex justify-content-between">
+                        </div>
+                        <div class="radial_bottom">
+                            <p><a href="#">View Full Report</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3">
+                <div class="white_box mb_30 min_400">
+                    <div class="box_header ">
+                        <div class="main-title">
+                            <h3 class="mb-0">Top Sales Rep</h3>
+                        </div>
+                    </div>
+                    <canvas height="220px" id="doughutChart"></canvas>
+                    <div class="legend_style mt_10px ">
+                        <li class="d-block"> <span style="background-color: #DF67C1;"></span>Sale Rep A</li>
+                        <li class="d-block"> <span style="background-color: #6AE0BD;"></span> Sale Rep B</li>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-6">
+                <div class="white_box mb_30 min_400 ">
+                    <div class="box_header  box_header_block">
+                        <div class="main-title">
+                            <h3 class="mb-0">Yearly Sales</h3>
+                        </div>
+                        <div class="legend_style mt-10">
+                            <li class="inactive"> <span></span> Avarage</li>
+                        </div>
+                    </div>
+                    <div class="title_btn">
+                        <ul>
+                            <li><a class="active" href="#">All time</a></li>
+                            <li><a href="#">This year</a></li>
+                            <li><a href="#">This week</a></li>
+                            <li><a href="#">Today</a></li>
+                        </ul>
+                    </div>
+                    <canvas height="120px" id="sales-chart"></canvas>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+                <div class="white_box mb_30 min_400">
+                    <div class="box_header  box_header_block">
+                        <div class="main-title">
+                            <h3 class="mb-0">Top Five Selling Products</h3>
+                        </div>
+                    </div>
+                    <canvas height="220px" id="doughutChart2"></canvas>
+                    <div class="legend_style legend_style_grid mt_10px">
+                        <li class="d-block"> <span style="background-color: #FF7B36;"></span> shempo</li>
+                        <li class="d-block"> <span style="background-color: #E8205E;"></span> Conditioner</li>
+                        <li class="d-block"> <span style="background-color: #3B76EF"></span> Perfumes</li>
+                        <li class="d-block"> <span style="background-color:#00BFBF;"></span>Dry cut</li>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/js/jquery1-3.4.1.min.js"></script>
+
+
+@*<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>*@
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js"></script>
+<script src="~/assets/js/active_chart.js"></script>
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js">
+</script>
+<script src="~/assets/vendors/chartjs/chartjs_active.js"></script>
+<script src="~/assets/vendors/apex_chart/radial_active.js"></script>
+<script src="~/assets/vendors/apex_chart/stackbar.js"></script>
+<script src="~/assets/vendors/apex_chart/bar_active_1.js"></script>

@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!Doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Js Stylesheet -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="~/js/toastr.js"></script>
+    <title>User Registration</title>
+    <style>
+      
+
+        .container {
+            margin-top: 40px;
+            background-color: white;
+        }
+
+        .form-row {
+            margin-top: 20px;
+        }
+
+        .panel-primary > .panel-heading {
+            color: #fff;
+            background-color: #337AB7;
+            border-color: #337AB7;
+        }
+
+        .panel-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        button {
+            margin: 20px;
+        }
+
+        .card {
+            border: none;
+        }
+
+        h3 {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    @if (TempData["response"] != null)
+    {
+        <script>
+            $(document).ready(function() {
+                var success = '@((TempData["response"] != null).ToString())';
+                if (success == 'false' || success == false) {
+
+                } else {
+                    toastr.success('@TempData["response"].ToString()')
+                }
+            });
+        </script>
+    }
+    <div class="container">
+        @*<h3>Add Product</h3>*@
+
+        @using (Html.BeginForm(Html.BeginForm("#", "#", FormMethod.Post, new { enctype = "multipart/form-data" })))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="panel panel-primary ">
+                            <div class="panel-heading" id="panelheading">Add Products</div>
+                            <div class="panel-body">
+                                <div class="form-row">
+
+
+                                    <div class="form-group col-md-4">
+                                        <label>Product Name</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Product Name" />
+                                    </div>
+                                  
+                                    <div class="form-group col-md-4">
+                                        <label>Sale Price ($)</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Sale Price ($)" />
+                                    </div>
+                                     <div class="form-group col-md-4">
+                                        <label>Stock Quantity</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Stock Quantity" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>SKU</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="" />
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Low Stock threshold</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Low Stock threshold" />
+                                    </div>
+                                     <div class="form-group col-md-4">
+                                        <label>Regular Price ($)</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Regular Price ($)" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>weight (lbs)</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="0" />
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Product Code</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Product Code" />
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Product Tracking no</label>
+                                        <input class="form-control" id="StudentName" name="StudentName" type="text" value="Product Tracking no" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Stock Status</label>
+                                        @Html.DropDownList("Gender", new List<SelectListItem>{new SelectListItem{ Text="yes", Value="yes"},
+                                    new SelectListItem{ Text="No", Value="No"}
+                                    }, "--- Select Status---", new { @class = "form-control" })
+                                 
+                                    </div>
+                                     <div class="form-group col-md-4">
+                                        <label>Visibility</label>
+                                        @Html.DropDownList("Gender", new List<SelectListItem>{new SelectListItem{ Text="yes", Value="yes"},
+                                    new SelectListItem{ Text="No", Value="No"}
+                                    }, "--- Select Visibility---", new { @class = "form-control" })
+                                 
+                                    </div>
+                                   <div class="form-group col-md-4">
+                                        <label asp="CoverPhoto" class="control-label"></label>
+                                        <div class="custom-file">
+                                            <label for="CoverPhoto">Product image</label>
+                                            <input type="file" name="CoverPhoto" id="file" onchange="return fileValidation()" />
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Product Tags</label>
+                                      <input class="form-control" id="StudentName" name="StudentName" type="text" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-button" style="padding-left: 25px; float: right;">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+            </div>
+        }
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<script>
+    function fileValidation() {
+        var fileInput = document.getElementById('file');
+
+        var filePath = fileInput.value;
+
+        // Allowing file type
+        var allowedExtensions = /(\.png)$/i;
+
+        if (!allowedExtensions.exec(filePath)) {
+            alert('Only png File Allowed');
+            fileInput.value = '';
+            return false;
+        }
+        else {
+
+            // Image preview
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(
+                        'imagePreview').innerHTML =
+                        '<img src="' + e.target.result
+                        + '"/>';
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    }
+</script>

@@ -1,0 +1,137 @@
+﻿@model IEnumerable<InfluanceHairCare.models.Products>
+
+@{
+    ViewData["Title"] = "ProductsList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" rel="stylesheet" />
+
+<partial name="_ToasterAlert" />
+<br />
+<br />
+<br />
+<h4>Product List</h4>
+<br />
+<br />
+
+<div class="container">
+    <table id="User" class="display">
+
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Stock Quantity</th>
+                <th>Low Stock threshold</th>
+                <th>Regular Price ($)</th>
+                <th>Sale Price ($)</th>
+                <th>Stock Status</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.ProductCode</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.LowStockthreshold</td>
+                    <td>@item.RegularPrice</td>
+                    <td>@item.price</td>
+                    <td>
+                        @if (item.StockStatus == "yes")
+                        {
+
+                            <a class="btn btn-info">Available</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-danger">Not Available</a>
+
+                        }
+                    </td>
+
+                    <td style="display:flex; justify-content:space-between; padding-top:25px;">
+                        <a class="btn btn-link btn-warning edit btn-sm btnUpdates d-none" style="color:maroon; margin-right:5px;" href='@Url.Action("UpdateProduct", "Product", new { id = item.ProductId })' : null"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-link btn-warning edit btnupdate" style="color:maroon"><i class="fa fa-edit"></i></a>
+
+
+                        <a class="btn btn-link btn-danger remove btn-sm btnremove d-none" style="color:maroon" href='@Url.Action("productDelete", "Product", new { id = item.ProductId})' : null"><i class="fa fa-times"></i></a>
+                        <a class="btn btn-link btn-danger remove btndelete" style="color:maroon;margin-left: 1rem;"><i class="fa fa-times"></i></a>
+
+                        <a class="btn btn-info" style="margin-left: 1rem;" href='@Url.Action("ProductDetails", "SalesRep", new { id = ""})' : null"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                    </td>
+
+
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('#User').DataTable({
+
+                "Processing": true,
+                "ServerSide": false,
+                "Filter": true
+            })
+            $(".btndelete").click(function(e) {
+                e.preventDefault();
+                swal("Are you sure to delete?", {
+                    buttons: {
+                        yes: {
+                            text: "Yes",
+                            value: "yes"
+                        },
+                        no: {
+                            text: "No",
+                            value: "no"
+                        }
+                    }
+                }).then((value) => {
+                    if (value == "yes") {
+                        debugger;
+                        $(this).parent().find(".btnremove").get(0).click();
+                    }
+                    return false;
+                });
+            });
+
+            $(".btnupdate").click(function(e) {
+                e.preventDefault();
+                swal("Are you sure you want to update?", {
+                    buttons: {
+                        yes: {
+                            text: "Yes",
+                            value: "yes"
+                        },
+                        no: {
+                            text: "No",
+                            value: "no"
+                        }
+                    }
+                }).then((value) => {
+                    if (value == "yes") {
+                        debugger;
+                        $(this).parent().find(".btnUpdates").get(0).click();
+                    }
+                    return false;
+                });
+            });
+        });
+    </script>
+
+}

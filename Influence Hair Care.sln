@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Influence Hair Care", "Influence Hair Care\Influence Hair Care.csproj", "{D30520AE-07DC-4576-B139-ECFD4ECBE08B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfluanceHairCare.api", "InfluanceHairCare.api\InfluanceHairCare.api.csproj", "{AB5A8B3C-0FAE-4CB6-86DE-60F091A49A5B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfluanceHairCare.services", "InfluanceHairCare.services\InfluanceHairCare.services.csproj", "{277C738B-A7E1-4287-970C-D259414FE108}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfluanceHairCare.models", "InfluanceHairCare.models\InfluanceHairCare.models.csproj", "{C743BB2F-76B7-417B-8356-72327788825B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfluanceHairCare.utilities", "InfluanceHairCare.utilities\InfluanceHairCare.utilities.csproj", "{B0F0FF93-EE22-40C1-AD49-02C972CC2306}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FB9634CF-DCBA-4813-B4A8-9929CBF29E3C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D30520AE-07DC-4576-B139-ECFD4ECBE08B}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{D30520AE-07DC-4576-B139-ECFD4ECBE08B}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{D30520AE-07DC-4576-B139-ECFD4ECBE08B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30520AE-07DC-4576-B139-ECFD4ECBE08B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{AB5A8B3C-0FAE-4CB6-86DE-60F091A49A5B}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5A8B3C-0FAE-4CB6-86DE-60F091A49A5B}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{AB5A8B3C-0FAE-4CB6-86DE-60F091A49A5B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5A8B3C-0FAE-4CB6-86DE-60F091A49A5B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{277C738B-A7E1-4287-970C-D259414FE108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277C738B-A7E1-4287-970C-D259414FE108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277C738B-A7E1-4287-970C-D259414FE108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277C738B-A7E1-4287-970C-D259414FE108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C743BB2F-76B7-417B-8356-72327788825B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C743BB2F-76B7-417B-8356-72327788825B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C743BB2F-76B7-417B-8356-72327788825B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C743BB2F-76B7-417B-8356-72327788825B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F0FF93-EE22-40C1-AD49-02C972CC2306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F0FF93-EE22-40C1-AD49-02C972CC2306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F0FF93-EE22-40C1-AD49-02C972CC2306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F0FF93-EE22-40C1-AD49-02C972CC2306}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11FD824A-87A4-4540-8D89-5D1D850F523D}
+	EndGlobalSection
+EndGlobal

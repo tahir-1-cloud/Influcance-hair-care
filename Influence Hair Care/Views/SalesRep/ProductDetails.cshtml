@@ -1,0 +1,436 @@
+﻿@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Js Stylesheet -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.validate.min.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="~/js/toastr.js"></script>
+    <title>User Registration</title>
+
+</head>
+<body>
+    <br>
+
+    <br>
+
+    <br>
+
+    <div class="container-fluid position-relative" style="z-index: 99999;">
+        <div class="row">
+            <div class="col-md-12 shadow-sm">
+                <div class="container">
+
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <a href="#"><img src="" class="img-thumbnail p-0 border-0" /></a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-lg">
+                                <input type="text" id="" name="" class="form-control" placeholder="What search?" />
+                                <select class="form-control form-control-lg rounded-0">
+                                    <option>Style & Finshing Aids</option>
+                                    <option>Shampoos</option>
+                                    <option>Curl & Waves</option>
+                                    <option>Influance Skin</option>
+                                    <option>Influance Men</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-outline-secondary btn-block btn-lg" type="button">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="dropdown">
+
+                                <div class="dropdown-menu dropdown-menu-right p-3" style="width:500px;">
+                                    <table class="table table-sm table-striped table-bordered m-0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <img src="https://via.placeholder.com/30x30" class="img-thumbnail p-0" alt="" />
+                                                </td>
+                                                <td class="text-left">
+                                                    <p class="m-0">
+                                                        <a href="#">
+                                                            <i class="fas fa-times"></i>
+                                                        </a>
+                                                        <span>iPhone 11 Plus</span>
+                                                    </p>
+                                                </td>
+                                                <td class="text-center">1x</td>
+                                                <td class="text-right">$123.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <img src="https://via.placeholder.com/30x30" class="img-thumbnail p-0" alt="" />
+                                                </td>
+                                                <td class="text-left">
+                                                    <p class="m-0">
+                                                        <a href="#">
+                                                            <i class="fas fa-times"></i>
+                                                        </a>
+                                                        <span>iPhone 11 Plus</span>
+                                                    </p>
+                                                </td>
+                                                <td class="text-center">1x</td>
+                                                <td class="text-right">$123.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <img src="https://via.placeholder.com/30x30" class="img-thumbnail p-0" alt="" />
+                                                </td>
+                                                <td class="text-left">
+                                                    <p class="m-0">
+                                                        <a href="#">
+                                                            <i class="fas fa-times"></i>
+                                                        </a>
+                                                        <span>iPhone 11 Plus</span>
+                                                    </p>
+                                                </td>
+                                                <td class="text-center">1x</td>
+                                                <td class="text-right">$123.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right" colspan="3">Sub-Total</td>
+                                                <td class="text-right">$601.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right" colspan="3">Eco Tax (-2.00)</td>
+                                                <td class="text-right">$4.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right" colspan="3">VAT (20%)</td>
+                                                <td class="text-right">$120.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right" colspan="3">Total</td>
+                                                <td class="text-right">$725.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right" colspan="4">
+                                                    <a class="btn btn-secondary" href="#" role="button">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                        <span>View Cart</span>
+                                                    </a>
+                                                    <a class="btn btn-primary" href="#" role="button">
+                                                        <i class="fas fa-share"></i>
+                                                        <span>Checkout</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                              
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Sort By:</span>
+                                    </div>
+                                    <select class="form-control" id="" name="">
+                                        <option value="">Default</option>
+                                        <option value="">Name (A - Z)</option>
+                                        <option value="">Name (Z - A)</option>
+                                        <option value="">Price (Low &gt; High)</option>
+                                        <option value="">Price (High &gt; Low)</option>
+                                        <option value="">Rating (Highest)</option>
+                                        <option value="">Rating (Lowest)</option>
+                                        <option value="">Model (A - Z)</option>
+                                        <option value="">Model (Z - A)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Show:</span>
+                                    </div>
+                                    <select class="form-control" id="" name="">
+                                        <option value="">15</option>
+                                        <option value="">25</option>
+                                        <option value="">50</option>
+                                        <option value="">75</option>
+                                        <option value="">100</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/Loreal pearl Masque.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Shampoo</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/Morroccanoil Curl enhancing shampoo.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Hair Serum</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/Rene Furterer Okara Blond Blonde Radiance Ritual shampoo.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Shampoo</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00 <s class="lead text-muted">$943.00</s></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/Rene Furterer Forticea Fortifying Ritual Energizing Shampoo.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Hair Serum</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Shampoo</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Hair Serum</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00 <s class="lead text-muted">$943.00</s></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Hair Serum</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Shampoo</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+                                        <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">FaceBeauty</p>
+                                        <p class="m-0">
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                            <i class="fa-xs far fa-star"></i>
+                                        </p>
+                                        <p class="h5 m-0">$782.00 <s class="lead text-muted">$943.00</s></p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-footer p-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="pagination m-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-right mb-0 mt-1">Showing 1 to 12 of 12 (1 Pages)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row mb-5">
+        </div>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+

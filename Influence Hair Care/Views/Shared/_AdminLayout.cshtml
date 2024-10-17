@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.dashboardpack.com/finance-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Dec 2022 13:00:40 GMT -->
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Influance Hair Care</title>
+    <link rel="icon" href="~/assets/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap1.min.css" />
+    <link rel="stylesheet" href="~/assets/vendors/themefy_icon/themify-icons.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/swiper_slider/css/swiper.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/select2/css/select2.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/niceselect/css/nice-select.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/owl_carousel/css/owl.carousel.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/gijgo/gijgo.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/font_awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/assets/vendors/tagsinput/tagsinput.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/datatable/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/assets/vendors/datatable/css/responsive.dataTables.min.css" />
+    <link rel="stylesheet" href="~/assets/vendors/datatable/css/buttons.dataTables.min.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/text_editor/summernote-bs4.css" />
+
+    <link rel="stylesheet" href="~/assets/vendors/morris/morris.css">
+
+    <link rel="stylesheet" href="~/assets/vendors/material_icon/material-icons.css" />
+
+    <link rel="stylesheet" href="~/assets/css/metisMenu.css">
+
+    <link rel="stylesheet" href="~/assets/css/style1.css">
+    <link rel="stylesheet" href="~/css/custom.css">
+
+    <link rel="stylesheet" href="~/assets/css/colors/default.css" id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+
+    <nav class="sidebar" style="background-color:black;">
+        <div class="logo d-flex justify-content-between" style="background-color:black;">
+            <a href="@Url.Action("Index","Home")"><img src="~/assets/img/logo3.png" alt=""></a>
+            <div class="sidebar_close_icon d-lg-none">
+                <i class="ti-close"></i>
+            </div>
+        </div>
+        <ul id="sidebar_menu">
+            <li class="mm-active">
+                <a class="" href="@Url.Action("Index","Home")">
+                      <img src="" alt="">
+                    <span>Sale Dashboard</span>
+                </a>
+
+            </li>
+
+            <li class="mm-active">
+                <a class="has-arrow" href="#" aria-expanded="false">
+
+                    <img src="~/assets/img/menu-icon/1.svg" alt="">
+                    <span>Inventory Store</span>
+                </a>
+                <ul>
+                    <li><a href="@Url.Action("ViewProductdetail","InventoryStore")">View Product Details</a></li>
+                    <li><a href="@Url.Action("SaleRepInventory","InventoryStore")">Sale Reps inventory</a></li>
+                    <li><a href="@Url.Action("Updateinventory","InventoryStore")">Update inventory</a></li>
+
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/2.svg" alt="">
+                    <span>User Mangement</span>
+                </a>
+                <ul>
+                    <li><a href="@Url.Action("RegisterSaleRep","SalesRep")">Add User</a></li>
+                    <li><a href="@Url.Action("SaleRepList","SalesRep")">View All Users</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/3.svg" alt="">
+                    <span>Sales Reps <br /> Mangement</span>
+                </a>
+                <ul>
+
+                    <li><a href="@Url.Action("AddSaleRep","SalesRep")">Add Sale Rep</a></li>
+                    <li><a href="@Url.Action("GetAllSaleReps","SalesRep")">Sale Rep List</a></li>
+
+                    <li><a href="@Url.Action("SaleRepList","SalesRep")">View All Sale Reps</a></li>
+
+                    <li><a href="@Url.Action("ViewCustomer","SalesRep")">View Sale Rep Customers</a></li>
+                    <li><a href="@Url.Action("ChangeSaleReps","SalesRep")">View Order of Sale Reps</a> </li>
+                    <li><a href="@Url.Action("SaleRepDiscount","SalesRep")">Sale Rep Discount</a> </li>
+
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/5.svg" alt="">
+                    <span>Product <br /> Management</span>
+                </a>
+                <ul>
+                    <li><a href="@Url.Action("ProductAdd","Product")">Add Product</a></li>
+                    <li><a href="@Url.Action("AddCategories","SalesRep")">Add Category</a></li>
+                    <li><a href="@Url.Action("AddSubCategory","SalesRep")">Add SubCategory</a></li>
+                    <li><a class="active" href="@Url.Action("ProductsList","Product")">Product List</a></li>
+                    <li><a class="active" href="@Url.Action("ProductDetails","SalesRep")">Product Details</a></li>
+                    <li><a class="active" href="@Url.Action("ProductDiscount","SalesRep")">Product Discount</a></li>
+
+
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/5.svg" alt="">
+                    <span>Order<br /> Management</span>
+                </a>
+                <ul>
+                    <li><a href="@Url.Action("CurrentOrder","SalesRep")">Current Orders</a></li>
+                    <li><a href="@Url.Action("CompltedOrder","SalesRep")">Completed Orders</a></li>
+
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/5.svg" alt="">
+                    <span>Customer <br /> Management</span>
+                </a>
+                <ul>
+                    <li><a href="@Url.Action("CustomerApproval","Customer")">New Customer Approvals</a></li>
+                    <li><a href="@Url.Action("ViewAllCustomers","SalesRep")">View All Customer</a></li>
+                    <li><a href="@Url.Action("ChangeSaleReps","SalesRep")">Change Sale Rep</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a class="" href="@Url.Action("Payments","SalesRep")" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/5.svg" alt="">
+                    <span>Payments</span>
+                </a>
+                @*   <ul>
+                <li><a href="@Url.Action("CustomerApprovals","SalesRep")">Total Sa</a></li>
+                <li><a href="@Url.Action("ViewAllCustomers","SalesRep")">View All Customer</a></li>
+                <li><a href="profilebox.html">Change Sale Reps</a></li>
+
+                </ul>*@
+            </li>
+            <li class="">
+                <a class="" href="@Url.Action("BroadCastList","SalesRep")" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/7.svg" alt="">
+                    <span>Broadcast Message</span>
+                </a>
+                @*  <ul>
+                <li><a href="chartjs.html">Customer Comments</a></li>
+                <li><a href="apex_chart.html">Sale Rep Comments</a></li>
+                </ul>*@
+
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/7.svg" alt="">
+                    <span>Private Comments</span>
+                </a>
+                <ul>
+                    <li><a href="@Url.Action("CustomerChat","Chat")">Customer Comments</a></li>
+                    <li><a href=@Url.Action("SaleRepChat","Chat")>Sale Rep Comments</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <img src="~/assets/img/menu-icon/7.svg" alt="">
+                    <span>Returns</span>
+                </a>
+                <ul>
+                    <li><a href=@Url.Action("CustomerReturns","Complains")>Customer Returns</a></li>
+                    <li><a href=@Url.Action("SaleRepReturns","Complains")>Sale Reps Returns</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+        <section class="main_content dashboard_part">
+
+
+            <section class="content">
+
+                <div class="card">  
+    
+                    @RenderBody()
+                </div>
+
+
+            </section>
+            <br /><br />
+            <div class="footer_part">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="footer_iner text-center">
+                                <p>2023 © Influance - Designed by<a href="https://ab-sol.com/" target="_blank"><span class="btn btn-info">Absolute Solution </span> </a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="~/js/jquery1-3.4.1.min.js"></script>
+        <script src="~/assets/js/popper1.min.js"></script>
+        <script src="~/assets/js/bootstrap1.min.js"></script>
+
+        <script src="~/assets/js/metisMenu.js"></script>
+
+        <script src="~/assets/vendors/count_up/jquery.waypoints.min.js"></script>
+
+        <script src="~/assets/vendors/chartlist/Chart.min.js"></script>
+
+        <script src="~/assets/vendors/count_up/jquery.counterup.min.js"></script>
+
+        <script src="~/assets/vendors/swiper_slider/js/swiper.min.js"></script>
+
+        <script src="~/assets/vendors/niceselect/js/jquery.nice-select.min.js"></script>
+
+        <script src="~/assets/vendors/owl_carousel/js/owl.carousel.min.js"></script>
+
+        <script src="~/assets/vendors/gijgo/gijgo.min.js"></script>
+
+        <script src="~/assets/vendors/datatable/js/jquery.dataTables.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/dataTables.responsive.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/dataTables.buttons.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/buttons.flash.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/jszip.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/pdfmake.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/vfs_fonts.js"></script>
+        <script src="~/assets/vendors/datatable/js/buttons.html5.min.js"></script>
+        <script src="~/assets/vendors/datatable/js/buttons.print.min.js"></script>
+        <script src="~/assets/js/chart.min.js"></script>
+
+        <script src="~/assets/vendors/progressbar/jquery.barfiller.js"></script>
+
+        <script src="~/assets/vendors/tagsinput/tagsinput.js"></script>
+
+        <script src="~/assets/vendors/text_editor/summernote-bs4.js"></script>
+
+        <script src="~/assets/js/custom.js"></script>
+
+      
+    @*  
+        <script src="~/assets/vendors/apex_chart/area_chart.js"></script>
+       <script src="~/assets/vendors/apex_chart/apexcharts.js"></script>*@
+      
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+       
+        @RenderSection("Scripts", required: false);
+
+
+</body>
+
+<!-- Mirrored from demo.dashboardpack.com/finance-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Dec 2022 13:01:01 GMT -->
+</html>
+
+<script>
+    $(document).ready(function() {
+
+        $(".filter-button").click(function() {
+            var value = $(this).attr('data-filter');
+
+            if (value == "all") {
+
+                $('.filter').show('1000');
+            } else {
+
+                $(".filter").not('.' + value).hide('3000');
+                $('.filter').filter('.' + value).show('3000');
+
+            }
+
+
+            if ($(".filter-button").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+
+        });
+
+    });
+</script>

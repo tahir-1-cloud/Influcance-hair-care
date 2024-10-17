@@ -1,0 +1,335 @@
+﻿@{
+    ViewData["Title"] = "ViewProductdetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<style>
+    .item {
+        position: relative;
+        padding-top: 10px;
+        display: inline-block;
+    }
+
+    .notify-badge {
+        position: absolute;
+        /*right: -20px;*/
+        top: 10px;
+        background: red;
+        text-align: center;
+        border-radius: 30px 30px 30px 30px;
+        color: white;
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+</style>
+<!-- Required meta tags -->
+<br />
+
+<br />
+
+<div class="container-fluid position-relative" style="z-index: 99999;">
+    <div class="row">
+        <div class="col-md-12 shadow-sm">
+            <div class="container">
+
+                <div class="row mb-4">
+                    <div class="col-md-2">
+                        <a href="#"><img src="" class="img-thumbnail p-0 border-0" /></a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group-lg">
+                            <input type="text" id="" name="" class="form-control" placeholder="What search?" />
+                            <select class="form-control form-control-lg rounded-0">
+                                <option>Style & Finshing Aids</option>
+                                <option>Shampoos</option>
+                                <option>Curl & Waves</option>
+                                <option>Influance Skin</option>
+                                <option>Influance Men</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-outline-secondary btn-block btn-lg" type="button">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Sort By:</span>
+                                </div>
+                                <select class="form-control" id="" name="">
+                                    <option value="">Default</option>
+                                    <option value="">Name (A - Z)</option>
+                                    <option value="">Name (Z - A)</option>
+                                    <option value="">Price (Low &gt; High)</option>
+                                    <option value="">Price (High &gt; Low)</option>
+                                    <option value="">Rating (Highest)</option>
+                                    <option value="">Rating (Lowest)</option>
+                                    <option value="">Model (A - Z)</option>
+                                    <option value="">Model (Z - A)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Show:</span>
+                                </div>
+                                <select class="form-control" id="" name="">
+                                    <option value="">15</option>
+                                    <option value="">25</option>
+                                    <option value="">50</option>
+                                    <option value="">75</option>
+                                    <option value="">100</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="item">
+                                    <a href="@Url.Action("ProductInformation","SalesRep")">
+
+                                        <span class="notify-badge">-20%</span>
+                                        <img class="card-img-top" src="~/assets/img/Loreal pearl Masque.jpg" alt="" />
+
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="h6">Shampoo</p>
+
+                                        <p class="h5 m-0">$782.00</p>
+                                    </div>
+
+                                    <div class="card-body qty">
+                                        <p class="h6">Qty</p>
+
+                                        <p class="h5 m-0">58</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/Morroccanoil Curl enhancing shampoo.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Hair Serum</p>
+
+                                    <p class="h5 m-0">$782.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">65</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/Rene Furterer Okara Blond Blonde Radiance Ritual shampoo.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Shampoo</p>
+
+                                    <p class="h5 m-0">$72.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">78</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/Rene Furterer Forticea Fortifying Ritual Energizing Shampoo.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Hair Serum</p>
+
+                                    <p class="h5 m-0">$782.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">48</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Shampoo</p>
+
+                                    <p class="h5 m-0">$782.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">73</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Hair Serum</p>
+
+                                    <p class="h5 m-0">$782.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">82</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Hair Serum</p>
+
+                                    <p class="h5 m-0">$72.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">81</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">Shampoo</p>
+
+                                    <p class="h5 m-0">$782.00</p>
+                                </div>
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">78</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <a href="@Url.Action("ProductInformation","SalesRep")">
+                                    <img class="card-img-top" src="~/assets/img/salon1.jpg" alt="" />
+                                </a>
+                                <div class="card-body">
+                                    <p class="h6">FaceBeauty</p>
+
+                                    <p class="h5 m-0">$72.00</p>
+                                </div>
+
+                                <div class="card-body qty">
+                                    <p class="h6">Qty</p>
+
+                                    <p class="h5 m-0">48</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-footer p-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="pagination m-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-right mb-0 mt-1">Showing 1 to 9 of 9 (1 Pages)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row mb-5">
+    </div>
+
+</div>
+

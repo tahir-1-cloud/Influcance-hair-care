@@ -1,0 +1,195 @@
+﻿@model InfluanceHairCare.models.Products
+@{
+    ViewData["Title"] = "ProductAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor htttpcontextAccessor;
+
+  <partial name="_ToasterAlert" />
+    <style>
+
+
+        .container {
+            margin-top: 40px;
+            background-color: white;
+            border: solid;
+        }
+
+        .form-row {
+            margin-top: 20px;
+        }
+
+        .panel-primary > .panel-heading {
+            color: #fff;
+            background-color: #337AB7;
+            border-color: #337AB7;
+        }
+
+        .panel-heading {
+            padding: 10px 15px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        button {
+            margin: 20px;
+        }
+
+        .card {
+            border: none;
+        }
+
+        h3 {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    
+     
+    <div class="container">
+        @*<h3>Add Product</h3>*@
+        @using (Html.BeginForm(Html.BeginForm("ProductAdd", "Product", FormMethod.Post, new { enctype = "multipart/form-data" })))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="panel panel-primary ">
+                            <div class="panel-heading" id="panelheading">Add Products</div>
+                            <div class="panel-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Product Name</label>
+                                        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @placeholder = "Product Name" })
+                                        @Html.ValidationMessageFor(x => x.ProductName, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Sale Price ($)</label>
+                                        @Html.TextBoxFor(x => x.price, new { @class = "form-control", @placeholder = "Sale Price ($)" })
+                                        @Html.ValidationMessageFor(x => x.price, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Regular Price ($)</label>
+                                        @Html.TextBoxFor(x => x.RegularPrice, new { @class = "form-control", @placeholder = "RegularPrice" })
+                                        @Html.ValidationMessageFor(x => x.RegularPrice, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Quantity</label>
+                                        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", @placeholder = "Quantity" })
+                                        @Html.ValidationMessageFor(x => x.Quantity, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Low Stock threshold</label>
+                                        @Html.TextBoxFor(x => x.LowStockthreshold, new { @class = "form-control", @placeholder = "LowStockthreshold" })
+                                        @Html.ValidationMessageFor(x => x.LowStockthreshold, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Weight (lbs)</label>
+                                        @Html.TextBoxFor(x => x.ProductWaight, new { @class = "form-control", @placeholder = "Product (lbs)" })
+                                        @Html.ValidationMessageFor(x => x.ProductWaight, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Product Tracking No</label>
+                                        @Html.TextBoxFor(x => x.ProductTrackingNo, new { @class = "form-control", @placeholder = "Product Tracking No" })
+                                        @Html.ValidationMessageFor(x => x.ProductTrackingNo, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Product Code</label>
+                                        @Html.TextBoxFor(x => x.ProductCode, new { @class = "form-control", @placeholder = "Product Code" })
+                                        @Html.ValidationMessageFor(x => x.ProductCode, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Product Tags</label>
+                                        @Html.TextBoxFor(x => x.ProductTags, new { @class = "form-control", @placeholder = "Product Tags" })
+                                        @Html.ValidationMessageFor(x => x.ProductTags, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label>Stock Status</label>
+                                        @Html.DropDownList("StockStatus", new List<SelectListItem>{new SelectListItem{ Text="yes", Value="yes"},
+                                    new SelectListItem{ Text="No", Value="No"},                                  
+                                    }, new { @class = "form-control", @style = "height:auto" })
+                                        @Html.ValidationMessageFor(x => x.StockStatus, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Visibility</label>
+                                         @Html.DropDownList("Visibility", new List<SelectListItem>{new SelectListItem{ Text="yes", Value="yes"},
+                                    new SelectListItem{ Text="No", Value="No"},                                  
+                                    }, new { @class = "form-control", @style = "height:auto" })
+                                        @Html.ValidationMessageFor(x => x.Visibility, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label asp="Product Image" class="control-label"></label>
+                                        <div class="custom-file">
+                                            <label for="ProductImage">Product image</label>
+                                            <input type="file" name="ProductImage" id="file" onchange="return fileValidation()" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label>Description</label>
+                                        @Html.TextAreaFor(x => x.Discription, new { @class = "form-control", @placeholder = "Description" })
+                                        @Html.ValidationMessageFor(x => x.Discription, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-button" style="padding-left: 25px; float: right;">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                </div>
+
+            </div>
+        
+         }
+  </div>
+
+
+<script>
+    function fileValidation() {
+        var fileInput = document.getElementById('file');
+        debugger;
+        var filePath = fileInput.value;
+
+        // Allowing file type
+        var allowedExtensions = /(\.jpg|png|jpeg)$/i;
+
+        if (!allowedExtensions.exec(filePath)) {
+            alert('png jpg jpeg File Allowed');
+            fileInput.value = '';
+            return false;
+        }
+        else {
+
+            // Image preview
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(
+                        'imagePreview').innerHTML =
+                        '<img src="' + e.target.result
+                        + '"/>';
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    }
+</script>
+

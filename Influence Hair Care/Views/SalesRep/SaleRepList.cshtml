@@ -1,0 +1,164 @@
+﻿@{
+    ViewData["Title"] = "SaleRepList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+    <style>
+        .swal-modal {
+            background: lightblue;
+        }
+
+        .swal-button--yes {
+            background: darkslateblue;
+        }
+
+        .swal-button--no {
+            background: darkslateblue;
+        }
+    </style>
+
+<br />
+<br />
+<h3>User List</h3>
+<br />
+<br />
+
+<div class="container">
+    <table id="User" class="display">
+
+        <thead>
+            <tr>
+                <th>Register No</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Mobile No</th>
+                <th>Stae</th>
+                <th>City</th>
+                <th>Role Name</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tr>
+            <td>1</td>
+            <td>murtza</td>
+            <td>Ali</td>
+            <td>Murtza@gmail.com</td>
+            <td>77885566445</td>
+            <td>California</td>
+            <td>New York</td>
+            <td>Super Admin</td>
+            <td>
+                <a class="btn btn-link btn-warning edit btnUpdates d-none" style="color:maroon" href='@Url.Action("EditExamRoom", "ExamRoom", new { id = "#" })' : null"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-link btn-warning edit btnupdate" style="color:maroon"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-link btn-danger remove btnremove d-none" style="color:maroon" href='@Url.Action("DeleteExamRoom", "ExamRoom", new { id = "RoomId"})' : null"><i class="fa fa-times"></i></a>
+                <a class="btn btn-link btn-danger remove btndelete" data-rel="RoomId" id="" style="color:maroon" : null"><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>2</td>
+            <td>kamran</td>
+            <td>Ali</td>
+            <td>Murtza@gmail.com</td>
+            <td>77885566445</td>
+            <td>Florida</td>
+            <td>New York</td>
+            <td>Super Admin</td>
+            <td>
+                <a class="btn btn-link btn-warning edit btnUpdates d-none" style="color:maroon" href='@Url.Action("EditExamRoom", "ExamRoom", new { id = "#" })' : null"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-link btn-warning edit btnupdate" style="color:maroon"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-link btn-danger remove btnremove d-none" style="color:maroon" href='@Url.Action("DeleteExamRoom", "ExamRoom", new { id = "RoomId"})' : null"><i class="fa fa-times"></i></a>
+                <a class="btn btn-link btn-danger remove btndelete" data-rel="RoomId" id="" style="color:maroon" : null"><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>awais</td>
+            <td>Ali</td>
+            <td>Murtza@gmail.com</td>
+            <td>77885566445</td>
+            <td>California</td>
+            <td>New York</td>
+            <td>Super Admin</td>
+            <td>
+                <a class="btn btn-link btn-warning edit btnUpdates d-none" style="color:maroon" href='@Url.Action("EditExamRoom", "ExamRoom", new { id = "#" })' : null"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-link btn-warning edit btnupdate" style="color:maroon"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-link btn-danger remove btnremove d-none" style="color:maroon" href='@Url.Action("DeleteExamRoom", "ExamRoom", new { id = "RoomId"})' : null"><i class="fa fa-times"></i></a>
+                <a class="btn btn-link btn-danger remove btndelete" data-rel="RoomId" id="" style="color:maroon" : null"><i class="fa fa-times"></i></a>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" rel="stylesheet" />
+
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('#User').DataTable({
+
+                "Processing": true,
+                "ServerSide": false,
+                "Filter": true
+            })
+
+            $(".btndelete").click(function(e) {
+                e.preventDefault();
+                swal("Are you sure to delete?", {
+                    buttons: {
+                        yes: {
+                            text: "Yes",
+                            value: "yes"
+                        },
+                        no: {
+                            text: "No",
+                            value: "no"
+                        }
+                    }
+                }).then((value) => {
+                    if (value == "yes") {
+                        debugger;
+                        $(this).parent().find(".btnremove").get(0).click();
+                    }
+                    return false;
+                });
+            });
+
+            $(".btnupdate").click(function(e) {
+                e.preventDefault();
+                swal("Are you sure you want to update?", {
+                    buttons: {
+                        yes: {
+                            text: "Yes",
+                            value: "yes"
+                        },
+                        no: {
+                            text: "No",
+                            value: "no"
+                        }
+                    }
+                }).then((value) => {
+                    if (value == "yes") {
+                        debugger;
+                        $(this).parent().find(".btnUpdates").get(0).click();
+                    }
+                    return false;
+                });
+            });
+        });
+    </script>
+
+}

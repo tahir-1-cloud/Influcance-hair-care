@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewData["Title"] = "RegisterSaleRep";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+   
+    <style>
+
+
+        .container {
+            margin-top: 40px;
+            background-color: white;
+        }
+
+        h1 {
+            padding: 20px;
+        }
+
+        .form-row {
+            margin: 20px;
+        }
+
+        button {
+            margin: 20px;
+        }
+    </style>
+
+
+       <div class="container">
+        <h1> @ViewBag.PageName</h1>
+        <h3 style="margin-left:24px;">Register Sale Rep</h3>
+        <br />
+        @using (Html.BeginForm("AddNewAdmin", "UsersManagement", FormMethod.Post))
+        {
+
+            <div>@ViewData["error"]</div>
+
+            @Html.AntiForgeryToken() // @Html.ValidationSummary()
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+                    <label style=" font-weight:normal">First Name</label>
+                    <input class="form-control" id="StudentName" name="StudentName" type="text" value="First Name" />
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Last Name</label>
+                 <input class="form-control" id="StudentName" name="StudentName" type="text" value="Last Name" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Email</label>
+                   <input class="form-control" id="StudentName" name="StudentName" type="text" value="Email" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Mobile No</label>
+                <input class="form-control" id="StudentName" name="StudentName" type="text" value="Mobile No" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Address</label>
+                  <input class="form-control" id="StudentName" name="StudentName" type="text" value="Address" />
+                </div>
+               <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Role name</label>
+                 <input class="form-control" id="StudentName" name="StudentName" type="text" value="Role name" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Password</label>
+                   <input class="form-control" id="StudentName" name="StudentName" type="text" value="Password" />
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label style=" font-weight:normal">Confirm Password</label>
+                 <input class="form-control" id="StudentName" name="StudentName" type="text" value="Confirm Password" />
+                </div>
+            </div>
+
+         
+             <div class="form-button" style="padding-left: 25px; float: right;">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+            }
+    </div>

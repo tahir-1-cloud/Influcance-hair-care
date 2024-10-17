@@ -1,0 +1,144 @@
+﻿@{
+    ViewData["Title"] = "Updateinventory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<style>
+
+    .swal-button--yes {
+        background: darkslateblue;
+    }
+
+    .swal-button--no {
+        background: darkslateblue;
+    }
+</style>
+
+<br />
+<br />
+<h3>Update inventory</h3>
+<br />
+<br />
+<div class="container">
+    <table id="User" class="display">
+
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Product image</th>
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tr>
+            <td>e6523</td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <img width="50" src="/assets/img/Rene Furterer Forticea Fortifying Ritual Energizing Shampoo.jpg" class="img-fluid rounded avater-50 mr-3" />
+                    <div>
+                        <b>Test A</b>
+                        <p class="mb-0">
+                            <small>This is test Product</small>
+                        </p>
+                    </div>
+                </div>
+
+            </td>
+            <td>Skin Care</td>
+            <td>Skin care A</td>
+
+            <td>$7.00</td>
+            <td>
+                <input class="form-control" id="StudentName" name="StudentName" type="text" value="564" style="width:40%" ; />
+            </td>
+
+            <td style="display:flex; justify-content:space-between; padding-top:25px;">
+                <a class="btn btn-link btn-warning edit btnUpdates d-none" style="color:maroon" href='@Url.Action("EditExamRoom", "ExamRoom", new { id = "#" })' : null"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>e6523</td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <img width="50" src="/assets/img/Rene Furterer Forticea Fortifying Ritual Energizing Shampoo.jpg" class="img-fluid rounded avater-50 mr-3" />
+                    <div>
+                        <b>Test B</b>
+                        <p class="mb-0">
+                            <small>This is test Product</small>
+                        </p>
+                    </div>
+                </div>
+
+            </td>
+            <td>Skin Care</td>
+            <td>Skin care A</td>
+
+            <td>$7.00</td>
+            <td>
+                <input class="form-control" id="StudentName" name="StudentName" type="text" value="564" style="width:40%" ; />
+            </td>
+
+            <td style="display:flex; justify-content:space-between; padding-top:25px;">
+                <a class="btn btn-link btn-warning edit btnUpdates d-none" style="color:maroon" href='@Url.Action("EditExamRoom", "ExamRoom", new { id = "#" })' : null"><i class="fa fa-edit"></i></a>
+                <a class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+
+
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" rel="stylesheet" />
+
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $('#User').DataTable({
+
+                "Processing": true,
+                "ServerSide": false,
+                "Filter": true
+            })
+
+            $(".btndelete").click(function(e) {
+                e.preventDefault();
+                swal("Are you sure to delete?", {
+                    buttons: {
+                        yes: {
+                            text: "Yes",
+                            value: "yes"
+                        },
+                        no: {
+                            text: "No",
+                            value: "no"
+                        }
+                    }
+                }).then((value) => {
+                    if (value == "yes") {
+                        debugger;
+                        $(this).parent().find(".btnremove").get(0).click();
+                    }
+                    return false;
+                });
+            });
+        });
+    </script>
+
+}

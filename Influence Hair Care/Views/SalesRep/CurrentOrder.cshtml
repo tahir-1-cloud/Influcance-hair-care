@@ -1,0 +1,245 @@
+﻿@model IEnumerable<InfluanceHairCare.services.Modules.Order.Dtos.OrderResponseDto>
+@{
+    ViewData["Title"] = "CurrentOrder";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+
+<style>
+
+    .swal-modal {
+        background: lightblue;
+    }
+
+    .swal-button--yes {
+        background: darkslateblue;
+    }
+
+    .swal-button--no {
+        background: darkslateblue;
+    }
+</style>
+
+
+
+<br />
+<br />
+<h3>Current Orders</h3>
+<br />
+<br />
+<div>
+    <select id="myDropdown" class="form-group col-md-6" style="margin-left: 9rem;">
+        <option value=0>Select Sale Rep</option>
+    </select>
+</div>
+<table id="User" class="display">
+
+    <thead>
+        <tr>
+            <th>Sr No</th>
+
+            <th>Customer Name</th>
+            <th>Salon Name</th>
+            <th>Sale Rep Name</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    @{
+
+        int i = 1;
+        foreach (var item in Model)
+        //foreach (var item in ViewBag.MyData as List<InfluanceHairCare.services.Modules.Order.Dtos.OrderResponseDto>)
+        {
+                                        <tr>
+                                            <td>@i</td>
+
+                                            <td>@item.FirstName</td>
+                                            <td>@item.Salon_Name</td>
+                                            <td>@item.SaleRepName</td>
+                                            <td>@item.TotalPrice</td>
+                                            <td><button type="button" class="btn btn-success">Pending</button></td>
+                                            <td>
+
+                    <button id="@item.OrderId" type="button" class="btn btn-info mdl_show" onclick="loadinvoice(@item.OrderId)">Invoice</button>
+                                            </td>
+
+                                        </tr>
+            i++;
+        }
+    }
+</table>
+
+
+<div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="invoiceModalLabel">Invoice</h5>
+                @*  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+            <div>
+                <h5 style=" display: inline-block;">&nbsp;Name:</h5>
+                <label id="name" style=" display: inline-block;"></label>
+            </div>           
+            <div>
+                <h5 style=" display: inline-block;">&nbsp;Salon Name:</h5>
+                <label id="salonname" style=" display: inline-block;"></label>
+            </div>
+            <div>
+                <h5 style=" display: inline-block;">&nbsp;SaleRep Name:</h5>
+                <label id="salerep" style=" display: inline-block;"></label>
+            </div>
+            <div>
+                <h5 style=" display: inline-block;">&nbsp;Date:</h5>
+                <label id="date" style=" display: inline-block;"></label>
+            </div>
+            
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Discount</th>
+                            <th>Grand Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tables">
+                    </tbody>
+                </table>
+                <h4 class="note">ADDITIONAL NOTES</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="Print" class="btn btn-primary">Print</button>
+                @*<button type="button" class="btn btn-danger">Save changes</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" rel="stylesheet" />
+@section scripts
+    {
+    <script>
+        $(document).ready(function() {
+            $('#User').DataTable({
+
+                "Processing": true,
+                "ServerSide": false,
+                "Filter": true
+            })
+           
+            loaddropdown();
+            document.getElementById("myDropdown").onchange = function() {
+                debugger;
+                var selectedValue = this.value;
+                chnage(selectedValue)
+            };
+         
+        });
+          
+
+          function loadinvoice(id) {
+              debugger;
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OrderInvoice","Order")',
+                data: {ID: id},
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function(item) {
+                    debugger;
+                    var label = document.getElementById("name");
+                    var value = item.firstName;
+                    label.innerHTML = value;
+                    var label1 = document.getElementById("salonname");
+                    var value = item.salon_Name;
+                    label1.innerHTML = value;
+                    var label3 = document.getElementById("salerep");
+                    var value = item.saleRepName;
+                    label3.innerHTML = value;
+                    var label2 = document.getElementById("date");
+                    var value = item.dateTime;
+                    label2.innerHTML = value;
+                    var html = '';
+                    $.each(item.orderProducts, function (index, value) {
+                        debugger;
+                       
+                        html += '<tr>';
+                        html += '<td>' + value.productName + '</td>';
+                        html += '<td>' + value.quantity + '</td>';
+                        html += '<td>' + value.price + '</td>';
+                        html += '<td>' + value.discount + '</td>';
+                        html += '<td>' + value.totalPrice + '</td>';
+                        html += '</tr>';
+                  
+                       
+                     });
+                    $('.tables').html(html);
+                },
+                error: function(errormessage) {
+
+                }
+            });
+            $("#invoiceModal").modal("toggle");
+        } 
+
+        function chnage(id) {
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: "/SalesRep/CurrentOrderBySaleRep",
+                data: { ID: id },
+                success: function(response) {
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                }
+            });
+        }
+        function loaddropdown() {
+            debugger;
+            var status = "Pending";
+            $.ajax({
+                url: '@Url.Action("getSaleRep","SalesRep")',
+                type: "GET",
+                data: { Status: status },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function(data) {
+                    debugger
+                    $('#myDropdown').empty();
+                    $('#myDropdown').append($('<option>', {
+                        value: "0",
+                        text: "Select Sale Rep"
+                    }));
+                    $.each(data, function(index, value) {
+                        $('#myDropdown').append($('<option>', {
+                            value: value.id,
+                            text: value.firstName
+                        }));
+                    });
+                },
+                error: function(errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+    </script>
+
+}
+
+
+
+
+
